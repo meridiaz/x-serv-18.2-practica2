@@ -4,6 +4,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 from .models import UrlsAcortada
 
+
 @csrf_exempt
 def index(request):
     if request.method == "GET":
@@ -26,11 +27,12 @@ def index(request):
         try:
             c = UrlsAcortada.objects.get(url=requested_item)
         except UrlsAcortada.DoesNotExist:
-            c = UrlsAcortada(url = requested_item)
+            c = UrlsAcortada(url=requested_item)
             c.save()
 
         context = {'urlPedida': c}
         return render(request, 'acorta/url_pinchable.html', context)
+
 
 @csrf_exempt
 def get_content(request, llave):
