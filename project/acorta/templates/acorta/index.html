@@ -1,0 +1,12 @@
+<h1>Lista de urls acortadas:</h1>
+<ul>
+{% for url_acor in url_list %}
+        <p> "/{{url_acor.id }}: {{url_acor.url }}"</p>
+{% endfor %}
+</ul>
+
+<form action="" method="POST">
+  <h1>Introduce una url a acortar:</h1>
+  <input type="text" name="valor">
+  <input type="submit" name="action" value="Enviar URL">
+</form>
